@@ -26,7 +26,8 @@ let io;
 module.exports = function initialSocket(httpServer) {
   io = new Server(httpServer, {
     cors: {
-      origin: "*",
+      origin: "https://talkap-client.vercel.app/",
+      methods: ["GET", "POST"],
     },
   });
 
