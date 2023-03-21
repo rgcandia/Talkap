@@ -27,8 +27,8 @@ module.exports = function initialSocket(httpServer) {
   io = new Server(httpServer, {
     cors: {
       origin: "*",
+      credentials: true,
     },
-    transports: ['websocket'],
   });
 
   //Pongo a escuchar io
