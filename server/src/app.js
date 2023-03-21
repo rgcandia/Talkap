@@ -4,21 +4,21 @@ const cors = require('cors');
 const http = require('http');
 const initialSocket = require('./socket.js');
 const server = express();
-const routes = require('./routes/index.js');
-const updateInfo = require('./routes/handlers/updateInfo');
-const updatePic = require('./routes/handlers/updatePic');
-const updateBio = require('./routes/handlers/updateBio');
-const getUsers = require('./routes/handlers/getUsers');
+// const routes = require('./routes/index.js');
+// const updateInfo = require('./routes/handlers/updateInfo');
+// const updatePic = require('./routes/handlers/updatePic');
+// const updateBio = require('./routes/handlers/updateBio');
+// const getUsers = require('./routes/handlers/getUsers');
 const httpServer = http.createServer(server)
 const multer = require('multer')
-const sendMail = require('./routes/handlers/sendMail.js')
+// const sendMail = require('./routes/handlers/sendMail.js')
 const cloudinary = require("cloudinary").v2;
-const {
-  Donadores,
-  getUsertodonate,
-  getlastDonates,
-  getClosestObject,
-} = require("./services.js");
+// const {
+//   Donadores,
+//   getUsertodonate,
+//   getlastDonates,
+//   getClosestObject,
+// } = require("./services.js");
 
 //INICIALIZO SOCKET
 initialSocket(httpServer);
