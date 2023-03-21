@@ -5,7 +5,7 @@ import ChatCard from "../ChatCard/CardChat";
 // import LogoGiratorio from '../LogoGiratorio/LogoGiratorio.jsx'
 import { useSelector } from "react-redux";
 import { sendMessage } from "../../services/sockets.js";
-import InitialHome from "./InitialHome";
+// import InitialHome from "./InitialHome";
 
 export default function Chat() {
   const { messages } = useSelector((state) => state.chat);
@@ -41,7 +41,7 @@ export default function Chat() {
     <div className={style.chat}>
       {!addressee && (
         <>
-          <InitialHome />
+          {/* <InitialHome /> */}
         </>
       )}
       {addressee && (
