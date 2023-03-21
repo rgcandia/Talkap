@@ -27,6 +27,9 @@ module.exports = function initialSocket(httpServer) {
   io = new Server(httpServer, {
     cors: {
       origin: "*",
+      methods: ["GET", "POST"],
+      allowedHeaders: ["my-custom-header"],
+      credentials: true,
       
     },
   });
