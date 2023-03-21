@@ -76,7 +76,7 @@ export default function Home() {
   //RETURN COMPONENTE HOME
   return (
     <div className={style.home}>
-      {!my.name && <div className={style.loader}><Loader /></div>}
+      {/* {!my.name && <div className={style.loader}><Loader /></div>} */}
       {my.name && <>
         {!modal && user ? (
           <div className={style.chat}>

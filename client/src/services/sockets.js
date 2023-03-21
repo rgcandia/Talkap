@@ -4,7 +4,7 @@ let socket;
 //INICIA SOCKET CONECTADO CON RUTA JOIN Y MANDANDO EL USUARIO
 export const initiateSocket = (user) => {
   // socket = io("http://localhost:3001");
-   socket = io("https://talkap-server.vercel.app/",{ transports: ['websocket', 'polling', 'flashsocket'] });
+   socket = io("https://talkap-server.vercel.app/",{ transports : ['websocket'] });
   console.log(`Connecting socket...`);
   if (socket && user) {
     socket.emit("join", user);
