@@ -30,11 +30,11 @@ cloudinary.config({
   }); //
   var upload = multer({ dest: 'uploads/' });///midleware auxiliar para recibir archivos 
 
-server.name = 'API';
-server.use(express.json());
-server.use(morgan('dev'));
-server.use(cors({ origin:"*"}));
-server.use((req, res, next) => {
+  httpServer.name = 'API';
+  httpServer.use(express.json());
+  httpServer.use(morgan('dev'));
+  httpServer.use(cors());
+  httpServer.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
     res.header('Access-Control-Allow-Credentials', 'true');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -42,7 +42,7 @@ server.use((req, res, next) => {
     next();
   });
 
-  server.post('/audioconverter',upload.single('file'),async(req,res)=>{
+  httpServer.post('/audioconverter',upload.single('file'),async(req,res)=>{
 
     const result=await cloudinary.uploader.upload(req.file.path,{
         resource_type: "video",
@@ -56,7 +56,7 @@ server.use((req, res, next) => {
 
 })
 
-server.post("/donador",async(req,res)=>{
+httpServer.post("/donador",async(req,res)=>{
     
   const {user}=req.body//usuario nos llega por body
   const lastdonates=await getlastDonates()///obtenemos ultimos donadores y sus fechas de donaciones
@@ -83,7 +83,7 @@ server.post("/donador",async(req,res)=>{
 //que donaron hace menos de un minuto y son redirigidos al home, ahi se le agradece al usuario.
 //pd: lo ideal es hacerlo de otra manera con webhooks de stripe pero se dificulta para el tiempo que queda
 // Error catching endware.
-server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
+httpServer.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   const status = err.status || 500;
   const message = err.message || err;
   console.error(err);
